@@ -17,5 +17,5 @@ line1=hello
 
 
 
-squasher=absent
+squasher=PRESENT
 line20=neutral
