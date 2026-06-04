@@ -1,4 +1,4 @@
 # Act 4: Squash-then-stale-PR loss demo
-line1=hello
+line1=YOUR_PR
 line5=neutral
 squasher=absent
