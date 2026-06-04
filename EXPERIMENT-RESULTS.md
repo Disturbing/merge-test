@@ -64,3 +64,23 @@ cd merge-test
 git log --oneline --graph --all
 gh pr view 2
 ```
+
+---
+
+## Act 2 — two files (mergeable stale squash)
+
+When each line lives in its own file, GitHub allows squash on the stale branch:
+
+| PR | Branch | Change | Result |
+|----|--------|--------|--------|
+| [#3](https://github.com/Disturbing/merge-test/pull/3) | `act2-line1` | `line1.txt` Hello → Hi | squash merged |
+| [#4](https://github.com/Disturbing/merge-test/pull/4) | `act2-line2` (not updated) | `line2.txt` Coop → Peter | squash merged |
+
+Final `main`:
+
+```
+line1.txt → Hi
+line2.txt → Peter
+```
+
+Equivalent to **`Hi` / `Peter`** in the one-file README — both edits land; the stale branch does **not** drop the PR2 hunk when there is no merge conflict.
