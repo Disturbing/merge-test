@@ -84,3 +84,27 @@ line2.txt → Peter
 ```
 
 Equivalent to **`Hi` / `Peter`** in the one-file README — both edits land; the stale branch does **not** drop the PR2 hunk when there is no merge conflict.
+
+
+---
+
+## Act 3 — 10-line README (distant edits, squash both PRs)
+
+**File layout** (10 lines): line 1 `Hello`, lines 2–9 blank, line 10 `Coop`.
+
+| PR | Branch | Edit | Merge |
+|----|--------|------|-------|
+| [#5](https://github.com/Disturbing/merge-test/pull/5) | `act3-line1` | line 1 → `Hi` | squash merged |
+| [#6](https://github.com/Disturbing/merge-test/pull/6) | `act3-line2` (not updated) | line 10 → `Peter` | squash merged (**CLEAN**, no conflict) |
+
+**Final `main` README:**
+
+```
+Hi
+(8 blank lines)
+Peter
+```
+
+**Result: `Hi` on line 1, `Peter` on line 10** — not `Hi`/`Coop`. Spacing avoids GitHub’s conflict block, but the squash delta still applies line 10 (`Coop` → `Peter`) on current `main`.
+
+Baseline commit: `b1457f5`.
