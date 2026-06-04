@@ -1,4 +1,4 @@
 # Act 4: Squash-then-stale-PR loss demo
 line1=hello
-line5=neutral
-squasher=absent
+line5=FROM_SQUASHER
+squasher=PRESENT
